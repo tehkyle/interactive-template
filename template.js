@@ -16,7 +16,7 @@ exports.template = function(grunt, init, done) {
     //add environment variables, dynamic properties
     
     var root = init.filesToCopy(props);
-    init.copyAndProcess(root, props, { noProcess: "src/assets/**,data/**" });
+    init.copyAndProcess(root, props, { noProcess: ["src/assets/**","data/**"] });
     //grunt.file.mkdir("data");
     grunt.file.mkdir("src/assets/synced");
 
