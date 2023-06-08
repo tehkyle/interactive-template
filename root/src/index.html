@@ -5,7 +5,108 @@
     <link rel="stylesheet" type="text/css" href="style.css">
   </head>
   <body>
+    <!-- This section builds all the scrolly telly background images -->
+    <section id="scrollytelly-background">
+      <% json.scrolly.sort(function(a, b) { return a.order - b.order }).forEach(function(step, i) { %>
+        <picture data-index="<%= i %>">
+          <source media="(max-width: 720px)" srcset="assets/placeholders/mobile/<%= step.img %>">
+          <img src="assets/placeholders/desktop/<%= step.img %>" class="scrolly-image" data-index="<%= i %>">
+        </picture>
+      <% }) %>
+    </section>
 
+    <main>
+      <!-- Header section, contains KUOW top branding, title, image, and bylines. -->
+      <%= t.include("partials/_header.html") %>
+      <!-- Section before scrollytell, contains sample copy sections -->
+      <section id="top" class="top-section opaque">
+        <section class="copy-section">
+          <div class="copy-block">
+            <p><span class="dropcap">S</span>uspendisse potenti. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Cras a ullamcorper augue, ut congue tellus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Pellentesque sagittis velit non sem ullamcorper, sed pretium ex iaculis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Integer pretium cursus tellus, sed commodo odio tempor vel. Suspendisse potenti. Sed ut lectus consectetur, condimentum neque non, pharetra urna. Morbi vestibulum erat vel nibh egestas, eu tempus metus dapibus. Vestibulum lacinia sapien in condimentum consequat. Aenean sit amet neque ex. Vestibulum euismod nibh id scelerisque tincidunt.</p>
+          </div>
+        </section>
+        <section class="copy-section">
+          <div class="section-image">
+            <picture>
+              <source media="(max-width: 720px)" srcset="assets/placeholders/mobile/section-image.png">
+              <img src="assets/placeholders/desktop/section-image.png" />
+            </picture>
+          </div>
+          <div class="copy-block">
+            <h3>SECTION TITLE</h3>
+            <h2>SECTION SUBTITLE</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris interdum ultrices nibh, ac feugiat nisi pharetra non. Nunc in justo in neque lobortis elementum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Suspendisse sollicitudin sapien in turpis condimentum, cursus auctor risus fermentum. Maecenas posuere condimentum tincidunt. Integer eleifend lectus ligula. Aenean interdum, leo eget gravida volutpat, metus erat imperdiet orci, sed congue risus elit vel lorem. Nullam ut elit et metus egestas commodo.</p>
+            <p>Cras convallis quam justo, eget consequat felis efficitur quis. Integer arcu velit, ultrices quis congue nec, tincidunt vitae lorem. Curabitur eu mi sem. Praesent aliquam neque sit amet semper pharetra. Nunc luctus ligula lorem, vel aliquet felis mollis sed. Nullam quis semper tellus. Integer ex dolor, tristique sit amet leo ac, euismod consectetur arcu. In rutrum orci arcu, quis aliquam felis volutpat non. Aliquam ac imperdiet dolor. Nunc a elit vulputate, ultricies lorem quis, feugiat mauris.</p>
+          </div>
+        </section>
+      </section>
+      <!-- Scrollytell section, contains each 'card' and will use some script to determine which background image to display based on which 'card' is on the screen -->
+      <section id="scrolly-cards">
+        <% json.scrolly.sort(function(a, b) { return a.order - b.order }).forEach(function(step, i) { %>
+          <section class="scrolling-section" data-index="<%= i %>">
+            <% step.copy.forEach(function(txt, j) { %>
+              <div class="floating-card" data-index="<%= i %>" data-card="<%= j %>"> 
+                <% if (!!step.header && j == 0) { %>
+                  <header>
+                    <div class="card-image-container">
+                      <img src="assets/placeholders/scrollytell_card_image.png" />
+                    </div>
+                    <h3><%= step.header %></h3>
+                    <% if (!!step.subtitle) { %>
+                      <fieldset class="card-subtitle"><legend class="card-subtitle-content"><%= step.subtitle %></legend></fieldset>
+                    <% } %>
+                  </header>
+                <% } %>
+                <div class="card-body">
+                  <p><%= txt %></p>
+                </div>
+              </div>
+            <% }) %>
+          </section>
+        <% }) %>
+      </section>
+      <!-- Section after scrollytell, contains sample copy section -->
+      <section id="bottom" class="bottom-section opaque">
+        <section class="copy-section">
+          <div class="section-image">
+            <picture>
+              <source media="(max-width: 720px)" srcset="assets/placeholders/mobile/section-image.png">
+              <img src="assets/placeholders/desktop/section-image.png" />
+            </picture>
+          </div>
+          <div class="copy-block">
+            <h3>SECTION TITLE</h3>
+            <h2>SECTION SUBTITLE</h2>
+            <p>Cras in sem viverra, mattis elit sit amet, iaculis lacus. Pellentesque id odio auctor, elementum ipsum vel, volutpat ex. Curabitur placerat nisi eu arcu ornare dictum. Pellentesque sollicitudin, velit quis ornare finibus, neque felis hendrerit elit, ut scelerisque metus diam in tellus. Donec pellentesque congue urna et rhoncus. Nunc in nulla vel mi aliquet dignissim ac id eros. Vivamus tristique tristique enim, ac consectetur dolor. Phasellus porttitor nisi quis tellus hendrerit, vitae tempor ante tempus. Integer et pretium sapien. Quisque nisl dolor, rutrum in viverra id, sagittis quis sapien. Cras consequat eleifend lacus consequat maximus. Nam faucibus erat et enim convallis, id posuere arcu condimentum.</p>
+            <p>Donec sollicitudin urna sed semper gravida. Integer iaculis risus condimentum blandit lacinia. Quisque nec vulputate arcu, eu placerat enim. Quisque consectetur feugiat mauris et dapibus. Morbi sagittis lacinia metus. In eros lacus, efficitur in neque vehicula, tincidunt pretium erat. In auctor in ex at vehicula. Aenean arcu urna, cursus sed ullamcorper id, viverra a dolor. Integer at fringilla odio, ac ullamcorper mauris. Cras nec sapien vulputate, condimentum purus vitae, mattis elit. Integer vel metus ullamcorper, venenatis libero eget, mollis lectus. Etiam scelerisque diam sit amet vehicula maximus. Phasellus congue varius nisl at imperdiet. Nullam volutpat erat nec facilisis dapibus. Suspendisse fringilla tortor rutrum lorem vestibulum finibus. Morbi id elit eu leo hendrerit dignissim.</p>
+          </div>
+        </section>
+      </section>
+      <section id="credits" class="opaque">
+        <div class="credits-content">
+          <div class="credits-header">Credits</div>
+          <div class="credits-container">
+            <div class="credit">
+              <span class="credit-title">Story</span>
+              <a class="credit-name" href="https://kuow.org/authors/#" target="_blank">AUTHOR</a>
+            </div>
+            <div class="credit">
+              <span class="credit-title">Development</span>
+              <a class="credit-name" href="https://kuow.org/authors/#" target="_blank">DEVELOPER</a>
+            </div>
+            <div class="credit">
+              <span class="credit-title">Design</span>
+              <a class="credit-name" href="https://kuow.org/authors/#" target="_blank">DESIGNER</a>
+            </div>
+            <div class="credit">
+              <span class="credit-title">Editors</span>
+              <a class="credit-name" href="https://kuow.org/authors/#" target="_blank">EDITOR</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+      <%= t.include("partials/_footer.html") %>
+    </main>
     <script>
         window.PROJECT_ANALYTICS = <%= JSON.stringify(json.project.analytics || {}) %>;
     </script>

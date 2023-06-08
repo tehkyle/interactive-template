@@ -1,13 +1,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
-<title><%= project.title %> : NPR</title>
+<title><%= project.title %> : KUOW</title>
 
 <!-- Favicon -->
-<link rel="apple-touch-icon" sizes="180x180" href="https://media.npr.org/templates/favicon/favicon-180x180.png" />
-<link rel="icon" sizes="96x96" href="https://media.npr.org/templates/favicon/favicon-96x96.png" />
-<link rel="icon" sizes="32x32" href="https://media.npr.org/templates/favicon/favicon-32x32.png" />
-<link rel="icon" sizes="16x16" href="https://media.npr.org/templates/favicon/favicon-16x16.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="assets/icon.png" />
+<link rel="icon" sizes="96x96" href="assets/icon.png" />
+<!-- <link rel="icon" sizes="32x32" href="assets/icon.png" />
+<link rel="icon" sizes="16x16" href="assets/icon.png" /> -->
 
 <!-- Safari, you're the worst -->
 <meta name='format-detection' content='telephone=no'>
@@ -20,7 +20,7 @@
 <!-- BEGIN TWITTER SUMMARY CARD -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="<%= project.title %>">
-<meta name="twitter:site" content="@nprviz">
+<meta name="twitter:site" content="@KUOW">
 <meta name="twitter:url" content="<%= project.url %>">
 <meta name="twitter:image" content="<%= project.url + project.image %>">
 <meta name="twitter:description" content="<%= project.description %>">
@@ -28,16 +28,10 @@
 <!-- Social sharing meta -->
 <meta property="og:type" content="article">
 <meta property="og:title" content="<%= project.title %>">
-<meta property="og:site_name" content="NPR Visuals">
+<meta property="og:site_name" content="KUOW">
 <meta property="og:url" content="<%= project.url %>">
 <meta property="og:image" content="<%= project.url + project.image %>">
 <meta property="og:description" content="<%= project.description %>">
-
-<!-- Facebook-specific meta -->
-<meta property="fb:app_id" content="138837436154588">
-<meta property="article:opinion" content="false">
-<meta property="article:content_tier" content="free">
-<meta property="fb:pages" content="10643211755">
 
 <!-- Google structured data -->
 <script type="application/ld+json">
@@ -55,14 +49,14 @@
   },
   "author": {
     "@type": "Person",
-    "name": "NPR Staff"
+    "name": "Teo Popescu"
   },
   "publisher": {
     "@type": "Organization",
-    "name": "NPR",
+    "name": "KUOW",
     "logo": {
       "@type": "ImageObject",
-      "url": "<%= project.url %>assets/logo.png",
+      "url": "<%= project.url %>assets/icon.png",
       "width": 2176,
       "height": 725
     }

@@ -1,0 +1,20 @@
+[
+    {
+        "order": 1,
+        "img": "first.png",
+        "header": "The First Card",
+        "copy": [
+            "Pellentesque luctus risus sed nibh tincidunt, ac aliquam enim pretium. Aliquam purus erat, sodales eget libero vitae, accumsan sollicitudin purus. Nullam ornare pulvinar leo, quis gravida tortor varius eu. Mauris id dui mattis, congue augue sit amet, tincidunt urna."
+        ]
+    }, 
+    {
+        "order": 2,
+        "img": "second.png",
+        "header": "The Second Card",
+        "subtitle": "Multi-card!",
+        "copy": [
+            "Cras sagittis odio nec feugiat ultrices. Pellentesque facilisis magna sapien, sit amet gravida erat facilisis varius. Aliquam erat volutpat. In sed nisi eget ex convallis malesuada a vel odio.",
+            "Nullam ipsum orci, gravida a efficitur at, vehicula nec lorem. Vestibulum dignissim euismod metus in placerat. Aenean dictum sem leo, ut ornare lorem laoreet eu. Nullam condimentum ligula et nisi cursus scelerisque. Ut ornare, neque non congue scelerisque, orci erat finibus urna, id finibus mauris nulla sit amet lorem. Nullam tempus turpis augue, a euismod ante aliquam sed."            
+        ]
+    }
+]

@@ -1,0 +1,155 @@
+// Colors
+@kuow-aqua: #1A9CA8;
+@kuow-orange: #EC6838;
+@kuow-dark-blue: #043754;
+
+@base-brand: #043754;
+@base-white: #fff;
+@base-dark-gray: #494c59;
+@base-gray: #99a1ab;
+@base-light-gray: #d4d9df;
+
+@primary: #137e87;
+//@primary: #1a9ca8;
+@primary-light: #5bccce;
+@primary-dark: #0c4a50;
+
+@secondary: #ec6838;
+@secondary-light: #f9d2c4;
+@secondary-dark: #dc4a15;
+
+@border-primary: #c5e7e7;
+@border-secondary: #d4d9df;
+@border-neutral-3: #f4f4f3;
+
+@background-primary: #1a9ca8;
+@background-secondary: #ec6838;
+@background-white: #fff;
+
+// Fonts
+@gotham: 'Gotham SSm', Helvetica, Arial, sans-serif;
+@knockout: 'Knockout 31 4r','Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+@sans: 'Montserrat', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+@serif: Georgia, "Times New Roman", Times, serif;
+
+.column() {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .row() {
+    .column();
+    flex-direction: row;
+  }
+  
+  .mont() {
+    font-family: @sans;
+    font-style: normal;
+    font-weight: 400;
+  }
+  
+  // Font mixins
+  .gotham() {
+    font-family: @gotham;
+    font-weight: normal;
+    font-weight: 400;
+  }
+  
+  // Normal Knockout
+  .knockout() {
+    font-family: @knockout;
+    font-weight: normal;
+  }
+  
+  // Knockout, uppercased
+  .knockout-upper() {
+    .knockout();
+    text-transform: uppercase;
+  }
+  
+  // Knockout for headings
+  .knockout-header() {
+    .knockout-upper();
+    letter-spacing: 0.05em;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* KUOW standard partials */
+
+.kuow-logo {
+    height: 100%;
+    object-fit: contain;
+  }
+  
+  .dropcap {
+    color: @primary-dark;
+    font-family: noto-serif,serif;
+    font-size: 60px;
+    line-height: .65;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: normal;
+    margin: 0.09em 0.09em 0 0;
+    float: left;
+  
+    @media @mobile {
+      font-size: 80px;
+    }
+  }
+  
+  .brand-header {
+    max-height: 6rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 4px solid @border-primary;
+    padding: 2rem;
+    position: sticky;
+    top: 0;
+    background-color: @base-white;
+    z-index: 11;
+  
+    @media @mobile {
+      padding: 2rem 1rem;
+    }
+  
+    .kuow-logo-container {
+      margin: -0.8rem 2rem;
+      @media @mobile {
+        margin: -.2rem 0rem;
+        transform: translateY(3px);
+      }
+    }
+  
+    .donate {
+      background-color: @primary;
+      border: 3px solid @primary-light;
+      color: @base-white;
+      padding: 1rem 2rem;
+      border-radius: .5rem;
+      text-align: center;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      transition: border-color .5s, background-color .5s;
+  
+      &:hover {
+        background-color: @primary-dark;
+        border-color: @primary-dark;
+      }
+  
+      a, a:visited {
+        color: @base-white;
+        text-decoration: none;
+        font-size: 1rem;
+      }
+    }
+  }
+  
+  .hide-on-mobile {
+    @media @mobile {
+      display: none;
+    }
+  }

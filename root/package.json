@@ -19,6 +19,7 @@
     "chalk": "^2.4.2",
     "commonmark": "^0.24.0",
     "csv": "^5.1.1",
+    "custom-select": "^1.1.15",
     "dot": "^1.1.2",
     "exorcist": "^1.0.1",
     "googleapis": "^84.0.0",
@@ -31,7 +32,8 @@
     "resolve": "^1.1.7",
     "shelljs": "^0.8.3",
     "through2": "^3.0.1",
-    "typogr": "^0.6.4"
+    "typogr": "^0.6.4",
+    "waypoints": "^4.0.1"
   },
   "browserify": {
     "transform": [

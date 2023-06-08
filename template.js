@@ -1,7 +1,7 @@
 var exec = require("child_process").exec;
 var path = require("path");
 
-exports.description = "A standard starting-point for news app development at NPR."
+exports.description = "A standard starting-point for scrolly news app development at KUOW."
 exports.template = function(grunt, init, done) {
   //prelims
   var here = path.basename(process.cwd());
@@ -16,8 +16,8 @@ exports.template = function(grunt, init, done) {
     //add environment variables, dynamic properties
     
     var root = init.filesToCopy(props);
-    init.copyAndProcess(root, props, { noProcess: "src/assets/**" });
-    grunt.file.mkdir("data");
+    init.copyAndProcess(root, props, { noProcess: "src/assets/**,data/**" });
+    //grunt.file.mkdir("data");
     grunt.file.mkdir("src/assets/synced");
 
     //install node modules

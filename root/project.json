@@ -15,10 +15,10 @@
   "scripts": {
     "src/js/main.js": "build/app.js"
   },
-  "title": "",
-  "description": "",
+  "title": "{%= app_name %}",
+  "description": "{%= app_description %}",
   "url": "",
-  "image": "assets/logo.png",
+  "image": "assets/icon.png",
   "analytics": {
     "topicIDs": [],
     "primaryTopic": "",
@@ -26,6 +26,6 @@
   },
   "sheets": [],
   "docs": {},
-  "embedded": true,
+  "embedded": false,
   "production": false
 }
