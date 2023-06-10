@@ -1,0 +1,8 @@
+<section id="scrollytelly-background">
+    <% json.scrolly.sort(function(a, b) { return a.order - b.order }).forEach(function(step, i) { %>
+      <picture data-index="<%= step.order - 1 %>">
+        <source media="(max-width: 720px)" srcset="assets/placeholders/mobile/<%= step.img %>">
+        <img src="assets/placeholders/desktop/<%= step.img %>" class="scrolly-image" data-index="<%= i %>">
+      </picture>
+    <% }) %>
+  </section>

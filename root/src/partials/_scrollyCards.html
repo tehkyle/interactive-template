@@ -1,0 +1,24 @@
+<section id="scrolly-cards">
+    <% json.scrolly.filter(function(card) {return card.zone == zone}).sort(function(a, b) { return a.order - b.order }).forEach(function(step, i) { %>
+        <section class="scrolling-section" data-index="<%= step.order - 1 %>" data-align="<%= step.align %>">
+        <% step.copy.forEach(function(txt, j) { %>
+            <div class="floating-card" data-index="<%= step.order - 1 %>" data-card="<%= j %>"> 
+            <% if (!!step.header && j == 0) { %>
+                <header>
+                <div class="card-image-container">
+                    <img src="assets/placeholders/scrollytell_card_image.png" />
+                </div>
+                <h3><%= step.header %></h3>
+                <% if (!!step.subtitle) { %>
+                    <fieldset class="card-subtitle"><legend class="card-subtitle-content"><%= step.subtitle %></legend></fieldset>
+                <% } %>
+                </header>
+            <% } %>
+            <div class="card-body" data-color="<%= step.textColor %>">
+                <p><%= txt %></p>
+            </div>
+            </div>
+        <% }) %>
+        </section>
+    <% }) %>
+</section>

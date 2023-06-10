@@ -9,6 +9,29 @@ var qsa = function(s, doc) {
 var scrollingSections = qsa(".scrolling-section");
 var scrollyBackgrounds = qsa(".scrolly-image");
 var indexedBackgrounds = [];
+var progressContainer = document.querySelector(".progress-container");
+var progressBar = document.querySelector(".progress-bar");
+
+document.addEventListener("scroll", (evt) => {
+  if (!progressBar)
+    return;
+  var maxHeight = (document.documentElement.scrollHeight || document.body.scrollHeight) - window.outerHeight;
+  var scrollposition = document.documentElement.scrollTop || document.body.scrollTop;
+  var percent = (Math.max(0, scrollposition) / Math.max(1, maxHeight)) * 100;
+  var percentStr = percent + "%";
+  progressBar.style.width = percentStr;
+});
+
+if (!!progressContainer) {
+  progressContainer.addEventListener("click", (evt) => {
+    var rect = progressContainer.getBoundingClientRect();
+    var x = evt.clientX - rect.left; //x position within the element.
+    var clickedPercent = (Math.max(0, x) / Math.max(1, rect.width));
+    var maxHeight = (document.documentElement.scrollHeight || document.body.scrollHeight) - window.outerHeight;
+    var targetHeight = maxHeight * clickedPercent;
+    window.scrollTo(0, targetHeight);
+  })
+}
 
 // Parse the scrolly backgrounds into an indexed object
 scrollyBackgrounds.forEach(function(img, i) {

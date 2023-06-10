@@ -19,6 +19,24 @@ html {
   }
 }
 
+.progress-container {
+  position: fixed;
+  display: block;
+  width: 100%;
+  background-color: @primary-light;
+  opacity: .5;
+  z-index: 10;
+  cursor: pointer;
+
+  .progress-bar {
+    background-color: @primary;
+    position: relative;
+    float: left;
+    height: 10px;
+    display: block;
+  }
+}
+
 //defensive coding
 * {
   //border-box, you're the best

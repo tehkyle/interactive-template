@@ -50,8 +50,14 @@
     display: flex;
     max-width: 700px;
 
+    &[data-align="left"] {
+      margin-right: auto;
+      margin-left: 8rem;
+    }
+
     @media @mobile {
       margin-right: auto;
+      margin-left: auto;
     }
 
     &:first-child {
@@ -137,6 +143,10 @@
           img {
             margin-bottom: .5rem;
           }
+        }
+
+        &[data-color="white"] {
+          color: @base-white;
         }
 
         p {
